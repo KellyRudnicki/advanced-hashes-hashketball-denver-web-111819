@@ -223,7 +223,7 @@ def most_points_scored
   
   player_array.each do |player|
     if player[:points] > most 
-      most = player[:most]
+      most = player[:points]
     end 
   end 
   most 
@@ -284,6 +284,7 @@ def long_name_steals_a_ton?
   end 
   most 
   most_player = nil 
+  
   player_array.each do |player|
     if player[:steals] == most 
       most_player = player[:player_name]
