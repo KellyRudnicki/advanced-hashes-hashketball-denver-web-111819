@@ -217,21 +217,23 @@ end
   
   
 def most_points_scored 
-  most = 0
-  player_n = []
+  most = 0 
   
-  game_hash.each do |place, team|
-    team.each do |attribute, data|
-      if attribute == :players
-        data.each do |player|
-          if player[:points] > most
-            most = player[:points]
-          end 
-        end 
-      end 
-    end
+  player_array = game_hash[:home][:players].concat game_hash[:away][:players]
+  
+  player_array.each do |player|
+    if player[:points] > most 
+      most = player[:most]
+    end 
   end 
   most 
+  most_player = nil 
+  player_array.each do |player|
+    if player[:points] == most 
+      most_player = player[:player_name]
+    end 
+  end 
+  most_player
 end 
 
 def winning_team
